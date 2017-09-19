@@ -1,4 +1,12 @@
 import $ from 'jquery';
 import Rx from 'rxjs/Rx';
 
-console.log('RxJS Boiler Running...');
+const button = $('#btn');
+
+const btnStream$ = Rx.Observable.fromEvent(button, 'click');
+
+btnStream$.subscribe(
+  (e) => console.log(e),
+  (error) => console.log(error),
+  () => console.log('complete')
+);
